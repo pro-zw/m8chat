@@ -1,0 +1,25 @@
+{
+  "name": "m8chat-assets",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.2",
+    "angular-ui-utils": "bower",
+    "angular-bootstrap": "~0.11.2",
+    "retina.js": "~1.3.0",
+    "angular-cookies": "~1.3.2",
+    "angular-sanitize": "~1.3.2",
+    "angular-touch": "~1.3.2",
+    "angular-animate": "~1.3.2",
+    "jQuery": "~2.1.1",
+    "font-awesome": "~4.2.0"
+  }
+}

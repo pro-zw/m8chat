@@ -1,0 +1,59 @@
+<div id="mc-login-popover" class="mc-login-wrapper">
+    <div id="mc-login-tab"><a href="#" ng-click="loginSelected($event)">Login</a></div>
+    <div id="mc-login-content">
+        <div class="container-fluid">
+            <form ng-submit="login()" novalidate name="loginForm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input
+                            name="email"
+                            type="email"
+                            class="form-control mc-input-text-field mc-light-font"
+                            ng-model="loginModel.email"
+                            required
+                            mc-blur
+                            placeholder="Email" />
+                        <div ng-cloak ng-show="loginForm.email.$dirty && loginForm.email.$invalid && loginForm.email.$blurred">
+                            <small class="mc-validation-error" ng-show="loginForm.email.$error.required">
+                                Please provide your email
+                            </small>
+                            <small class="mc-validation-error" ng-show="loginForm.email.$error.email">
+                                Please provide a valid email
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <input
+                            name="password"
+                            type="password"
+                            class="form-control mc-input-text-field mc-light-font"
+                            ng-model="loginModel.password"
+                            ng-minlength="6"
+                            required
+                            mc-blur
+                            placeholder="Password" />
+                        <div ng-cloak ng-show="loginForm.password.$dirty && loginForm.password.$invalid && loginForm.password.$blurred">
+                            <small class="mc-validation-error" ng-show="loginForm.password.$error.required">
+                                Please provide your password
+                            </small>
+                            <small class="mc-validation-error" ng-show="loginForm.password.$error.minlength">
+                                Your password is required to be at least 6 characters
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 mc-login-submit-btn-wrapper">
+                        <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid || isLogining">Login</button>
+                        <div class="mc-login-forgot-password-wrapper"><a href="#" ng-click="forgotPassword($event)">Forgot password</a></div>
+                        <div class="col-sm-12 mc-login-spinner">
+                            <span ng-cloak ng-show="isLogining"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                        </div>
+                        <div class="col-sm-12 mc-login-alert-bar-wrapper">
+                            <div mc-alert-bar topic="login-alert"></div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

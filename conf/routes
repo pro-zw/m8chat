@@ -1,0 +1,90 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET           /                                                                                     controllers.Application.index
+
+# Register page
+GET           /register                                                                             controllers.Application.register
+
+# Advertiser pages
+GET           /advert/advertisers/register/confirm-email                                            controllers.advert.AdvertiserController.confirmEmail(id: Long, token: String)
+GET           /advert/advertisers/me/advert                                                         controllers.advert.AdvertiserController.advert
+GET           /advert/advertisers/me/account-details                                                controllers.advert.AdvertiserController.accountDetails
+GET           /advert/advertisers/me/bill                                                           controllers.advert.BillController.bill
+GET           /advert/advertisers/me/plan                                                           controllers.advert.AdvertiserController.plan
+GET           /advert/advertisers/me/payment-method                                                 controllers.advert.AdvertiserController.paymentMethod
+GET           /advert/advertisers/me/logout                                                         controllers.advert.AdvertiserController.logout
+
+GET           /advert/advertisers/$advertiserId<[0-9]+>/reset-password                              controllers.advert.AdvertiserController.resetPasswordPage(advertiserId: Long, resetDigest: String)
+POST          /advert/advertisers/$advertiserId<[0-9]+>/reset-password                              controllers.advert.AdvertiserController.resetPassword(advertiserId: Long, resetDigest: String)
+
+GET           /advert/advertisers/$advertiserId<[0-9]+>/bill/$billId<[0-9]+>/execute-payment        controllers.advert.M8PayPalController.executePaymentPage(billId: Long, advertiserId: Long)
+POST          /advert/advertisers/$advertiserId<[0-9]+>/bill/$billId<[0-9]+>/execute-payment        controllers.advert.M8PayPalController.executePayment(billId: Long, advertiserId: Long, paymentId: String, PayerID: String)
+
+# M8User page
+GET           /social/users/$userId<[0-9]+>/reset-password                                          controllers.social.M8UserController.resetPasswordPage(userId: Long, resetDigest: String)
+POST          /social/users/$userId<[0-9]+>/reset-password                                          controllers.social.M8UserController.resetPassword(userId: Long, resetDigest: String)
+
+# API for Contact Us in support domain
+POST          /support/api/contact-us/send                                                          controllers.support.ContactUsController.sendEmail
+
+# Website API for Advertiser in advert domain
+PUT           /advert/api/advertisers/register                                                      controllers.advert.AdvertiserController.register
+POST          /advert/api/advertisers/login                                                         controllers.advert.AdvertiserController.login
+POST          /advert/api/advertisers/check-email                                                   controllers.advert.AdvertiserController.checkEmailExists
+POST          /advert/api/advertisers/me/update-business                                            controllers.advert.AdvertiserController.updateBusiness
+POST          /advert/api/advertisers/me/update-account                                             controllers.advert.AdvertiserController.updateAccount
+POST          /advert/api/advertisers/me/photos/$index<[0-9]+>/update                               controllers.advert.AdvertiserController.updatePhoto(index:Int)
+DELETE        /advert/api/advertisers/me/photos/$index<[0-9]+>                                      controllers.advert.AdvertiserController.deletePhoto(index:Int)
+
+POST          /advert/api/advertisers/forgot-password                                               controllers.advert.AdvertiserController.forgotPassword
+
+POST          /advert/api/advertisers/me/bills/$billId<[0-9]+>/create-payment                       controllers.advert.M8PayPalController.createPayment(billId: Long)
+
+GET           /advert/api/advertisers/me/credit-card                                                controllers.advert.AdvertiserController.getCreditCard
+POST          /advert/api/advertisers/me/change-plan                                                controllers.advert.AdvertiserController.changePlan
+POST          /advert/api/advertisers/me/change-payment-method                                      controllers.advert.AdvertiserController.changePaymentMethod
+DELETE        /advert/api/advertisers/me/stripe-customer-id                                         controllers.advert.AdvertiserController.removeStripeCustomerId
+
+# Mobile App API for M8User in social domain
+PUT           /mobile/social/api/users/register                                                     controllers.social.M8UserController.register
+POST          /mobile/social/api/users/check-email                                                  controllers.social.M8UserController.checkEmailExists
+POST          /mobile/social/api/users/check-username                                               controllers.social.M8UserController.checkUsernameExists
+POST          /mobile/social/api/users/check-fb-account                                             controllers.social.M8UserController.checkFbAccountExists
+POST          /mobile/social/api/users/login                                                        controllers.social.M8UserController.login
+POST          /mobile/social/api/users/me/update-position                                           controllers.social.M8UserController.updatePosition
+POST          /mobile/social/api/users/me/update-interests                                          controllers.social.M8UserController.updateInterests
+GET           /mobile/social/api/users/nearby                                                       controllers.social.M8UserController.listUsersNearby(latitude: Option[Double], longitude: Option[Double], page: Int, pageSize: Int)
+GET           /mobile/social/api/users/search                                                       controllers.social.M8UserController.searchUsers(criteria: String, latitude: Option[Double], longitude: Option[Double], page: Int, pageSize: Int)
+GET           /mobile/social/api/users/$userId<[0-9]+>                                              controllers.social.M8UserController.getOtherUserProfile(userId:Long)
+
+GET           /mobile/social/api/users/me/friends                                                   controllers.social.M8UserController.getFriends
+GET           /mobile/social/api/users/me/chats                                                     controllers.social.M8UserController.getChats
+PUT           /mobile/social/api/users/me/chats                                                     controllers.social.M8UserController.createNewChat
+POST          /mobile/social/api/users/me/chats/$chatId<[0-9]+>/leave                               controllers.social.M8UserController.leaveChat(chatId: Long)
+POST          /mobile/social/api/users/me/chats/$chatId<[0-9]+>/hide                                controllers.social.M8UserController.hideChat(chatId: Long)
+GET           /mobile/social/api/users/me/chats/$chatId<[0-9]+>/messages                            controllers.social.M8UserController.getChatMessages(chatId: Long)
+PUT           /mobile/social/api/users/me/chats/$chatId<[0-9]+>/messages                            controllers.social.M8UserController.createNewMessage(chatId: Long)
+GET           /mobile/social/api/users/me/chats/$chatId<[0-9]+>/other-participants                  controllers.social.M8UserController.getChatOtherParticipants(chatId: Long)
+POST          /mobile/social/api/users/$userId<[0-9]+>/bye                                          controllers.social.M8UserController.byeUser(userId: Long)
+POST          /mobile/social/api/users/$userId<[0-9]+>/block                                        controllers.social.M8UserController.blockUser(userId: Long)
+
+POST          /mobile/social/api/users/forgot-password                                              controllers.social.M8UserController.forgotPassword
+
+GET           /mobile/social/api/users/me                                                           controllers.social.M8UserController.getProfile
+DELETE        /mobile/social/api/users/me                                                           controllers.social.M8UserController.deleteAccount
+POST          /mobile/social/api/users/me/update-profile                                            controllers.social.M8UserController.updateProfile
+POST          /mobile/social/api/users/me/change-password                                           controllers.social.M8UserController.changePassword
+
+POST          /mobile/social/api/users/me/add-apple-apn-token                                       controllers.social.M8UserController.addAppleApnToken
+POST          /mobile/social/api/users/me/add_android-apn-token                                     controllers.social.M8UserController.addAndroidApnToken
+
+# Mobile App API for M8User in advert domain (note the blend of social & advert domain, we don't handle it well for now)
+GET           /mobile/advert/api/users/me/adverts/nearby                                            controllers.social.M8UserController.listAdvertsNearby(latitude: Option[Double], longitude: Option[Double], page: Int, pageSize: Int)
+GET           /mobile/advert/api/adverts/$advertId<[0-9]+>                                          controllers.advert.AdvertiserController.getAdvert(advertId: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/images/*file                                                                  controllers.Assets.at(path="/public/images", file)
+GET           /assets/*file                                                                         controllers.Assets.versioned(path="/public", file: Asset)

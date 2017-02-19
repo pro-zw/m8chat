@@ -1,0 +1,100 @@
+@import "../../_bootstrap-vars.less";
+@import "../../_m8chat-vars.less";
+
+.mc-advert-plan-wrapper {
+  text-align: center;
+
+  > div {
+    background: @odd-block-bg;
+
+    ul > li {
+      font-size: 21px;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+  }
+  
+  > div.mc-advert-plan-column-selected {
+    background: #000;
+  }
+
+  .mc-advert-plan-column1 {
+    border: solid 2px @default-border-color;
+  }
+  
+  .mc-advert-plan-column2, .mc-advert-plan-column3 {
+    border: solid 2px @default-border-color;
+    margin-top: 20px;
+
+    @media (min-width: @screen-sm-min) {
+      border-left: 0;
+      margin-top: 0;
+    }
+  }
+
+  div[class*="mc-advert-plan-title-"] {
+    font-size: 46px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .mc-advert-plan-title-bronze {
+    color: #c5a977;
+  }
+
+  .mc-advert-plan-title-silver {
+    color: #d2d1d1;
+  }
+
+  .mc-advert-plan-title-gold {
+    color: #fbcc34;
+  }
+
+  .mc-advert-plan-price-wrapper {
+    font-size: 21px;
+    color: #feeb12;
+    text-align: center;
+
+    > div {
+      border: solid 2px #feeb12;
+      border-radius: 5px;
+      width: 126px;
+      margin: 20px auto 32px;
+
+      /*
+      @media (min-width: @screen-sm-min) {
+        margin: 32px auto 53px;
+      }
+
+      @media (min-width: @screen-md-min) {
+        margin: 20px auto 32px;
+      }
+      */
+    }
+
+    span {
+      font-size: 18px;
+    }
+
+    span.mc-baseline-adjustment {
+      position: relative;
+      top: -0.15em;
+      font-size: inherit;
+    }
+  }
+  
+  .mc-advert-plan-button-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+
+    #mc-advert-plan-button3 {
+      @media (min-width: @screen-sm-min) {
+        margin-top: 56px;
+      }
+
+      @media (min-width: @screen-md-min) {
+        margin-top: 86px;
+      }
+    }
+  }
+}

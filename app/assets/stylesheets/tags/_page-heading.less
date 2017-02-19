@@ -1,0 +1,31 @@
+@import "../_bootstrap-vars.less";
+@import "../_m8chat-vars.less";
+
+.mc-page-heading-bg {
+  background-color: #000;
+
+  .mc-page-heading-wrapper .row {
+    text-align: center;
+    padding-top: 26px;
+    padding-bottom: 26px;
+
+    @media (min-width: @screen-sm-min) {
+      height: 180px;
+    }
+
+    .mc-page-heading-title {
+      .mc-bold-font;
+      font-size: 22px;
+
+      @media (min-width: @screen-sm-min) {
+        font-size: 43px;
+      }
+    }
+
+    .mc-page-heading-subtitle {
+      @media (min-width: @screen-sm-min) {
+        font-size: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@*This main nav is used when an advertiser has login*@
+@(showBillAlert: Boolean)
+<nav class="navbar navbar-inverse navbar-static-top" id="mc-main-navbar" role="navigation">
+    <div class="container" ng-controller="MainNavAltController">
+        <div class="navbar-header" id="mc-mainnav-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mc-mainnav" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img alt="Logo" src="/assets/images/mainnav-logo.png">
+            </a>
+        </div>
+        <div id="mc-mainnav" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="@routes.Application.index()#mc-contact-us-anchor" target="_blank">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@controllers.advert.routes.AdvertiserController.logout().url">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+    @if(showBillAlert) {
+        @views.html.advert.tags.accountGlobalAlert("Your advert will appear in the m8chat app when you make payment. Click <a href=\"" + controllers.advert.routes.BillController.bill() + "\" class=\"alert-link\">here</a> to pay.")
+    }
+</nav>
+@if(showBillAlert) {
+    <div class="container-fluid mc-account-global-alert-placeholder">&nbsp;</div>
+}

@@ -1,0 +1,20 @@
+@(rootUrl: String, name: String, error: Option[String])
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>m8chat Advertiser Subscription Direct Credit Failed</title>
+    </head>
+    @defining(rootUrl + controllers.advert.routes.AdvertiserController.paymentMethod()) { paymentMethodUrl =>
+        <body>
+            <p>Hi @name,</p>
+            <p>We failed to charge your credit card for the subscription of our advert service recently, and has switched your payment method from Subscription to Manual. The corresponding bill is also canceled and a new bill will be issued. Please click <a href="@paymentMethodUrl" target="_blank">here</a> to check your payment method on m8chat website. We are very sorry for any inconvenience.</p>
+            @if(error.isDefined) {
+                <p>The error caused failure: @error</p>
+            }
+            <p>Regards,<br>The m8chat team</p>
+        </body>
+    }
+</html>

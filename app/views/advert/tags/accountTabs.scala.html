@@ -1,0 +1,17 @@
+@(activeTab: String, hideBilling: Boolean)
+
+<div class="row mc-account-tabs-wrapper">
+    <div class="col-sm-12">
+        <ul class="nav nav-pills mc-account-nav-pills">
+            <li ng-class="{active: '@activeTab' == 'my-advert'}"><a href="@controllers.advert.routes.AdvertiserController.advert().url">My Advert</a></li>
+            <li ng-class="{active: '@activeTab' == 'my-account-details'}"><a href="@controllers.advert.routes.AdvertiserController.accountDetails().url">Update Account Details</a></li>
+            @if(!hideBilling){
+                <li ng-class="{active: '@activeTab' == 'my-plan'}"><a href="@controllers.advert.routes.AdvertiserController.plan()">View/Change Plan</a></li>
+                <li ng-class="{active: '@activeTab' == 'my-payment-method'}"><a href="@controllers.advert.routes.AdvertiserController.paymentMethod()">
+                    Payment Method</a></li>
+                <li ng-class="{active: '@activeTab' == 'my-bill'}"><a href="@controllers.advert.routes.BillController.bill().url">
+                    Billing</a></li>
+            }
+        </ul>
+    </div>
+</div>

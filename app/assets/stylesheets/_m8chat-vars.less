@@ -1,0 +1,128 @@
+@import "_bootstrap-vars.less";
+
+@normal-font-size: 18px;
+@high-dpi: ~"(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)";
+@default-border-color: #a7a9ac;
+@odd-block-bg: #2a2a2a;
+@even-block-bg: #44484c;
+@main-nav-height: 120px;
+@main-small-nav-height: 60px;
+
+/* Font Faces */
+@font-face {
+  font-family: Raleway-Light;
+  src: url("/assets/fonts/Raleway-Light.ttf");
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("/assets/fonts/Raleway-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Raleway-Bold;
+  src: url("/assets/fonts/Raleway-Bold.ttf");
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 0 6px;
+}
+
+.modal-title {
+  color: #000;
+}
+
+.modal-body {
+  color: #000;
+}
+
+.modal-footer {
+  .fa-spin {
+    color: #000;
+  }
+}
+
+/* Mixins */
+.mc-mixin-flex-enabled {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mc-mixin-flex-disabled {
+  display: block;
+}
+
+.mc-mixin-vertical-normal {
+  .mc-mixin-flex-disabled;
+
+  align-items: inherit;
+  -webkit-box-align: inherit;
+  -webkit-flex-align: inherit;
+  -ms-flex-align: inherit;
+  -webkit-align-items: inherit;
+}
+
+.mc-mixin-vertical-center {
+  .mc-mixin-flex-enabled;
+
+  align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center; /* Safari 7.0+ */
+}
+
+.mc-at2x-bg(@path, @horizon: left, @vertical: top, @w: auto, @h: auto) {
+  background: url(@path) no-repeat @horizon @vertical;
+  @at2x_path: ~`@{path}.replace(/\.\w+$/, function(match) { return "@2x" + match; })`;
+  @media @high-dpi {
+    background: url("@{at2x_path}") no-repeat @horizon @vertical;
+    background-size: @w @h;
+  }
+}
+
+.mc-light-font {
+  font-family: Raleway-Light, Arial, sans-serif;
+}
+
+.mc-normal-font {
+  font-family: Raleway, Arial, sans-serif;
+  font-weight: normal;
+}
+
+.mc-bold-font {
+  font-family: Raleway-Bold, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.mc-validation-error {
+  color: @brand-danger;
+  font-style: italic;
+  .mc-bold-font;
+}
+
+.mc-account-content-subtitle {
+  font-size: 22px;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: 30px;
+  }
+}
+
+.mc-account-content-label {
+  .mc-bold-font;
+  text-align: left;
+  margin-top: 17px;
+  font-size: 18px;
+}
+
+.mc-account-content-text {
+  text-align: left;
+  margin-top: 17px;
+  font-size: 18px;
+}

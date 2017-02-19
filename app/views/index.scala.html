@@ -1,0 +1,15 @@
+@main("Welcome to m8chat") {
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/index.css")">
+}{
+    <script src="@routes.Assets.versioned("javascripts/controllers/intro-video-controller.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/controllers/advert-plan-home-controller.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/controllers/contact-us-controller.js")" type="text/javascript"></script>
+}{
+    @tags.mainNav("home")
+    @views.html.home.tags.jumbotron()
+    @views.html.home.tags.introVideo()
+    @views.html.home.tags.howItWorks()
+    @views.html.home.tags.advertPlanHome()
+    @views.html.home.tags.contactUs()
+    @views.html.home.tags.promotion()
+}

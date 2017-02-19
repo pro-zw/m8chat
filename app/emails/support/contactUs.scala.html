@@ -1,0 +1,17 @@
+@(model: models.support.ContactUs)
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Us Message</title>
+    </head>
+    <body>
+        <b>Name:</b> @model.name<br>
+        <b>Email:</b> @model.email<br>
+        <b>Mobile:</b> @model.mobile<br>
+        <b>Comments:</b><br>
+        @model.comment
+    </body>
+</html>

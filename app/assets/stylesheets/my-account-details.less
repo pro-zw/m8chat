@@ -1,0 +1,37 @@
+@import "_bootstrap-vars.less";
+@import "_m8chat-vars.less";
+
+@import "advert/tags/_account-tabs.less";
+@import "advert/tags/_account-global-alert.less";
+@import "tags/_main-nav-alt.less";
+
+.mc-my-account-details-bg {
+  background-color: @even-block-bg;
+
+  .mc-my-account-details-wrapper {
+    padding-top: 36px;
+    padding-bottom: 65px;
+
+    .mc-my-details-wrapper {
+      margin-bottom: 20px;
+
+      .mc-my-details-title {
+        .mc-account-content-subtitle;
+      }
+
+      .control-label {
+        .mc-account-content-label;
+      }
+    }
+
+    .mc-my-account-details-submit-btn-wrapper {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .mc-my-account-details-spinner {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+}

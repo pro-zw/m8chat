@@ -1,0 +1,149 @@
+@import "_bootstrap-vars.less";
+@import "_m8chat-vars.less";
+
+@import "tags/_main-nav.less";
+@import "tags/_page-heading.less";
+@import "tags/_main-foot.less";
+
+/* see: http://stackoverflow.com/questions/14096375/fonts-flickering-with-css-jquery-animation-whats-causing-this */
+html, input, textarea {
+  -webkit-font-smoothing: antialiased; /* solving fonts flickering on Safari */
+}
+
+body {
+  color: white;
+  padding-top: 0;
+
+  /*
+  -webkit-transition: padding-top 0.3s ease;
+  -moz-transition: padding-top 0.3s ease;
+  -ms-transition: padding-top 0.3s ease;
+  -o-transition: padding-top 0.3s ease;
+  transition: padding-top 0.3s ease;
+  */
+
+  @media (min-width: @screen-md-min) {
+    padding-top: @main-nav-height;
+  }
+}
+
+b, strong {
+  .mc-bold-font;
+}
+
+div.container-fluid,div.container {
+  overflow: hidden;
+}
+
+a {
+  outline: none !important;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 8px 20px;
+}
+
+/*
+.mc-small-navbar-body {
+  padding-top: @main-small-nav-height;
+}
+*/
+
+.mc-hidden {
+  display: none;
+
+  @media (min-width: @screen-sm-min) {
+    display: inherit;
+    visibility: hidden;
+  }
+}
+
+.mc-anchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top: 0;
+
+  @media (min-width: @screen-md-min) {
+    top: -@main-small-nav-height;
+  }
+}
+
+.mc-block-title-wrapper {
+  text-align: center;
+
+  h3 {
+    margin-top: 44px;
+    margin-bottom: 45px;
+  }
+}
+
+.mc-input-text-field {
+  margin-top: 15px;
+  font-size: 20px;
+  background-color: transparent;
+  color: #fff;
+  border-top: 0 transparent;
+  border-left: 0 transparent;
+  border-right: 0 transparent;
+  border-bottom: solid 2px @default-border-color;
+  border-radius: 0;
+  padding-left: 0;
+  box-shadow: none;
+}
+
+.mc-input-text-field:focus {
+  border-bottom: solid 2px #fff;
+}
+
+.mc-input-text-field:hover {
+  border-bottom: solid 2px #fff;
+}
+
+.mc-input-text-field:disabled {
+  background-color: transparent;
+}
+
+.mc-input-textarea-field {
+  font-size: 20px;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 0;
+  border: solid 2px @default-border-color;
+  box-shadow: none;
+}
+
+.mc-input-textarea-field:disabled {
+  background-color: transparent;
+}
+
+/*
+.mc-input-textarea-field-dog-eared {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: 10px solid;
+  border-color: @odd-block-bg @odd-block-bg @default-border-color @default-border-color;
+
+  @media (min-width: @screen-sm-min) {
+    top: 0;
+  }
+}
+*/
+
+.mc-row-eq-height {
+  .mc-mixin-flex-disabled;
+
+  @media (min-width: @screen-sm-min) {
+    .mc-mixin-flex-enabled;
+  }
+}
+
+.mc-vertical-center-items {
+  .mc-mixin-vertical-normal;
+
+  @media (min-width: @screen-sm-min) {
+    .mc-mixin-vertical-center;
+  }
+}

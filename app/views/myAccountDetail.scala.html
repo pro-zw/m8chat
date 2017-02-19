@@ -1,0 +1,159 @@
+@(name: String, model: models.advert.AdvertiserAccountDetails)
+
+@main("Update Account Details") {
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/my-account-details.css")">
+} {
+    <script src="@routes.Assets.versioned("javascripts/controllers/main-nav-alt-controller.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/directives/mc-advertiser-check-email.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/controllers/my-account-details-controller.js")" type="text/javascript"></script>
+} {
+    @tags.mainNavAlt(model.issuedBill && !model.subscribed)
+    @* @tags.pageHeading(s"Hi $name", "You can edit your details and upload photos below") *@
+    <div class="container-fluid mc-my-account-details-bg" ng-controller="MyAccountDetailsController">
+        <div class="container mc-my-account-details-wrapper">
+            @views.html.advert.tags.accountTabs("my-account-details", model.freeSubscription)
+            <form ng-submit="save()" class="form-horizontal" novalidate name="myAccountForm">
+                <div class="row mc-my-details-wrapper">
+                    <div class="col-sm-12">
+                        <div class="mc-my-details-title">Your details</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Name:</label>
+                                    <div class="col-sm-10">
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        class="form-control mc-input-text-field mc-light-font"
+                                        ng-model="myAccountModel.name"
+                                        ng-init="myAccountModel.name='@model.name'"
+                                        ng-maxlength="80"
+                                        required
+                                        mc-blur />
+                                    <div ng-cloak ng-show="myAccountForm.name.$dirty && myAccountForm.name.$invalid && myAccountForm.name.$blurred">
+                                        <small class="mc-validation-error" ng-show="myAccountForm.name.$error.required">
+                                            Please provide your name
+                                        </small>
+                                        <small class="mc-validation-error" ng-show="myAccountForm.name.$error.maxlength">
+                                            Your name cannot be longer than 80 characters
+                                        </small>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Company Name:</label>
+                                    <div class="col-sm-8">
+                                        <input
+                                            name="companyName"
+                                            type="text"
+                                            class="form-control mc-input-text-field mc-light-font"
+                                            ng-model="myAccountModel.companyName"
+                                            ng-init="myAccountModel.companyName='@model.companyName'"
+                                            ng-maxlength="100"
+                                            required
+                                            mc-blur />
+                                        <div ng-cloak ng-show="myAccountForm.companyName.$dirty && myAccountForm.companyName.$invalid && myAccountForm.companyName.$blurred">
+                                            <small class="mc-validation-error" ng-show="myAccountForm.companyName.$error.required">
+                                                Please provide your company name
+                                            </small>
+                                            <small class="mc-validation-error" ng-show="myAccountForm.companyName.$error.maxlength">
+                                                Your company name cannot be longer than 100 characters
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            class="form-control mc-input-text-field mc-light-font"
+                                            ng-model="myAccountModel.email"
+                                            ng-init="myAccountModel.email='@model.email'"
+                                            ng-maxlength="254"
+                                            required
+                                            mc-blur />
+                                        <div ng-cloak ng-show="myAccountForm.email.$dirty && myAccountForm.email.$invalid && myAccountForm.email.$blurred">
+                                            <small class="mc-validation-error" ng-show="myAccountForm.email.$error.required">
+                                                Please provide your email
+                                            </small>
+                                            <small class="mc-validation-error" ng-show="myAccountForm.email.$error.email">
+                                                Please provide a valid email
+                                            </small>
+                                            <small class="mc-validation-error" ng-show="myAccountForm.email.$error.unique">
+                                                The email is already registered
+                                            </small>
+                                            <small class="mc-validation-error" ng-show="myAccountForm.email.$error.maxlength">
+                                                Your email cannot be longer than 254 characters
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">New Password:</label>
+                                    <div class="col-sm-8">
+                                        <input
+                                            name="password"
+                                            type="password"
+                                            class="form-control mc-input-text-field mc-light-font"
+                                            ng-model="myAccountModel.password"
+                                            ng-minlength="6"
+                                            mc-blur />
+                                        <div ng-cloak ng-show="myAccountForm.password.$dirty && myAccountForm.password.$invalid && myAccountForm.password.$blurred">
+                                            <small class="mc-validation-error" ng-show="myAccountForm.password.$error.minlength">
+                                                Your password is required to be at least 6 characters
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Password, again:</label>
+                                    <div class="col-sm-8">
+                                        <input
+                                            name="passwordAgain"
+                                            type="password"
+                                            class="form-control mc-input-text-field mc-light-font"
+                                            ng-model="myAccountModel.passwordAgain"
+                                            ui-validate="{confirmed:'$value==myAccountModel.password'}"
+                                            ui-validate-watch="'myAccountModel.password'" />
+                                        <div ng-cloak ng-show="myAccountForm.passwordAgain.$dirty && myAccountForm.passwordAgain.$invalid">
+                                            <small class="mc-validation-error" ng-show="myAccountForm.passwordAgain.$error.confirmed">
+                                                Passwords do not match
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 col-sm-12 mc-my-account-details-alert-bar-wrapper">
+                        <div mc-alert-bar topic="my-account-details-alert"></div>
+                    </div>
+                    <div class="col-sm-12 mc-my-account-details-submit-btn-wrapper">
+                        <button type="submit" class="btn btn-primary" ng-disabled="myAccountForm.$invalid || isSaving">Save</button>
+                    </div>
+                    <div class="col-sm-12 mc-my-account-details-spinner">
+                        <span ng-cloak ng-show="isSaving"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}

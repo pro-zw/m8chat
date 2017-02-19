@@ -1,0 +1,25 @@
+@(model: models.advert.AdvertiserPlan)
+
+@main("View/Change Plan") {
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/my-plan.css")">
+} {
+    <script src="@routes.Assets.versioned("javascripts/controllers/main-nav-alt-controller.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/controllers/advertiser-change-plan-controller.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/controllers/my-plan-controller.js")" type="text/javascript"></script>
+} {
+    @tags.mainNavAlt(model.issuedBill && !model.subscribed)
+    @* @tags.pageHeading(s"Hi ${model.name}", "You can view or change your plan below") *@
+    <div class="container-fluid mc-my-plan-bg" ng-controller="MyPlanController">
+        <div class="container mc-my-plan-wrapper" data-plan-name="@{model.planName}">
+            @views.html.advert.tags.accountTabs("my-plan", false)
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mc-my-plan-title">Your plan</div>
+                </div>
+                <div class="col-sm-12">
+                    @views.html.advert.tags.advertPlan()
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,20 @@
+@main("Executing Payment") {
+} {
+    <script src="@routes.Assets.versioned("javascripts/controllers/execute-payment-controller.js")" type="text/javascript"></script>
+} {
+    @tags.mainNav("executing-payment")
+    <div class="container-fluid mc-page-heading-bg" ng-controller="ExecutePaymentController">
+        <div class="container mc-page-heading-wrapper">
+            <div class="row mc-vertical-center-items">
+                <div class="col-sm-12">
+                    <div class="mc-page-heading-title">Executing Payment...</div>
+                    <div class="mc-page-heading-subtitle">
+                        <span ng-cloak ng-show="isExecuting"><i class="fa fa-spinner fa-spin fa-2x"></i></span>&nbsp;&nbsp;
+                        <span ng-bind="message | limitTo: 120"></span>
+                        @* {{ message | limitTo: 120 }} *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

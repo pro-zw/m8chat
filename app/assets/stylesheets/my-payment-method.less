@@ -1,0 +1,39 @@
+@import "_bootstrap-vars.less";
+@import "_m8chat-vars.less";
+
+@import "advert/tags/_account-tabs.less";
+@import "advert/tags/_account-global-alert.less";
+@import "tags/_main-nav-alt.less";
+
+.mc-my-payment-method-bg {
+  background-color: @even-block-bg;
+
+  .mc-my-payment-method-wrapper {
+    padding-top: 36px;
+    padding-bottom: 65px;
+
+    .mc-my-payment-method-details-wrapper {
+      .mc-my-payment-method-title {
+        .mc-account-content-subtitle;
+      }
+
+      .radio label {
+        font-size: 18px;
+      }
+
+      .control-label {
+        .mc-account-content-label;
+      }
+    }
+
+    .mc-my-payment-method-submit-btn-wrapper {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .mc-my-payment-method-spinner {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+}

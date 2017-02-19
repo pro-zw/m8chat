@@ -1,0 +1,8 @@
+@main("Email Confirmed") {
+} {
+    <script src="@routes.Assets.versioned("javascripts/controllers/my-email-confirmed-controller.js")" type="text/javascript"></script>
+} {
+    @tags.mainNav("email-confirmed")
+    @tags.pageHeading("Email Confirmed", "Your email is confirmed. Loading account...")
+    <div style="display: none;" ng-controller="MyEmailConfirmedController"></div>
+}

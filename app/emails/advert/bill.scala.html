@@ -1,0 +1,34 @@
+@(rootUrl: String, model: models.advert.BillEmail)(implicit lang: play.api.i18n.Lang)
+@import org.joda.time.format.DateTimeFormat
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>m8chat Advertiser Bill Information</title>
+    </head>
+    <body>
+        <p>Hi @model.name,</p>
+        <p>The following is the latest bill information from m8chat:</p>
+        @defining(DateTimeFormat.forPattern(DateTimeFormat.patternForStyle("M-", lang.toLocale))) { dateFormatter =>
+            <ul style="list-style-type : none">
+                <li>m8chat ABN: 280 614 236 38</li>
+                <li>Status: @model.status.capitalize</li>
+                <li>Issued at: @dateFormatter.print(model.issuedAt)</li>
+                <li>Paid at: @model.paidAt.map(dateFormatter.print).getOrElse("Not Paid")</li>
+                @if(model.status == "issued" || model.status == "expired") {
+                    <li>Expiring at: @model.expiringAt.map(dateFormatter.print).getOrElse("Not Applicable")</li>
+                }
+                @if(model.status == "canceled") {
+                    <li>Canceled at: @model.canceledAt.map(dateFormatter.print).getOrElse("Not Applicable")</li>
+                }
+                <li>Subtotal: $@{f"${model.amount / 1.1}%.2f"}</li>
+                <li>GST: $@{f"${model.amount - model.amount / 1.1}%.2f"}</li>
+                <li>Total: $@{f"${model.amount}%.2f"}</li>
+            </ul>
+        }
+        <p>Note the email delivery of billing information is not in real time, so for getting the latest billing information of your account, please login and access @defining(rootUrl + controllers.advert.routes.BillController.bill()) {billUrl => <a href="@billUrl" target="_blank">@billUrl</a>.}</p>
+        <p>Cheers,<br>The m8chat team</p>
+    </body>
+</html>

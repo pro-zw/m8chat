@@ -1,0 +1,29 @@
+@(navActive: String)
+<nav class="navbar navbar-inverse navbar-static-top" id="mc-main-navbar" role="navigation">
+    <div class="container" ng-controller="MainNavController">
+        <div class="navbar-header" id="mc-mainnav-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mc-mainnav" aria-expanded="false" aria-controls="navbar" ng-click="navbarToggled()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img alt="Logo" src="/assets/images/mainnav-logo.png">
+            </a>
+        </div>
+        <div id="mc-mainnav" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: navSelected == 'mc-jumbotron-anchor' && '@navActive' == 'home'}"><a href="@routes.Application.index()?anchor=mc-jumbotron-anchor" ng-click="navClicked('mc-jumbotron-anchor', $event)">Home</a></li>
+                <li ng-class="{active: navSelected == 'mc-intro-video-anchor' && '@navActive' == 'home'}"><a href="@routes.Application.index()?anchor=mc-intro-video-anchor" ng-click="navClicked('mc-intro-video-anchor', $event)">m8chat Ads</a></li>
+                <li ng-class="{active: navSelected == 'mc-advert-plan-home-anchor' && '@navActive' == 'home'}"><a href="@routes.Application.index()?anchor=mc-advert-plan-home-anchor" ng-click="navClicked('mc-advert-plan-home-anchor', $event)">Ad Plans</a></li>
+                <li ng-class="{active: navSelected == 'mc-contact-us-anchor' && '@navActive' == 'home'}"><a href="@routes.Application.index()?anchor=mc-contact-us-anchor" ng-click="navClicked('mc-contact-us-anchor', $event)">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-class="{active: '@navActive' == 'register'}"><a href="@routes.Application.register()">Register</a></li>
+                <li id="mc-login-popup-link"><a href="#" ng-click="loginSelected($event)">Login</a></li>
+            </ul>
+        </div>
+        @tags.login()
+    </div>
+</nav>

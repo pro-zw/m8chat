@@ -1,0 +1,43 @@
+@import "../../_bootstrap-vars.less";
+@import "../../_m8chat-vars.less";
+
+.mc-how-it-works-bg {
+  background-color: @odd-block-bg;
+
+  .mc-how-it-works-wrapper {
+    text-align: left;
+    font-size: @normal-font-size;
+
+    @media (min-width: @screen-md-min) {
+      text-align: center;
+      padding-bottom: 44px;
+    }
+
+    div[class*="mc-how-it-works-step"] {
+      min-height: 70px;
+      padding-left: 70px;
+      margin-bottom: 45px;
+
+      @media (min-width: @screen-md-min) {
+        width: 20%;
+        padding-top: 186px;
+        padding-left: 0;
+        min-height: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .mc-generate-how-it-works-icons(@i: 1) when (@i < 6) {
+      .mc-how-it-works-step-@{i} {
+        .mc-at2x-bg("/assets/images/how-it-works-vertical-step-@{i}.png", left, top, 60px, 68px) !important;
+
+        @media (min-width: @screen-md-min) {
+          .mc-at2x-bg("/assets/images/how-it-works-horizon-step-@{i}.png", center, top, 1380px, 170px) !important;
+        }
+      }
+      .mc-generate-how-it-works-icons(@i + 1);
+    }
+
+    .mc-generate-how-it-works-icons();
+  }
+}

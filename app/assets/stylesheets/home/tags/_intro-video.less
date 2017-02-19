@@ -1,0 +1,39 @@
+@import "../../_bootstrap-vars.less";
+@import "../../_m8chat-vars.less";
+
+.mc-intro-video-bg {
+  background-color: @even-block-bg;
+
+  .mc-intro-video-wrapper {
+    padding-top: 26px;
+    padding-bottom: 26px;
+
+    .mc-xs-intro-video-slogan {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .mc-sm-intro-video-slogan {
+      text-align: right;
+      font-size: 30px;
+    }
+
+    #mc-intro-video-frame-wrapper {
+      text-align: center;
+
+      @media (min-width: @screen-sm-min) {
+        margin-top: 0;
+        text-align: left;
+      }
+
+      #mc-intro-video-frame {
+        margin-top: 15px;
+        width: 100%;
+
+        @media (min-width: @screen-sm-min) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

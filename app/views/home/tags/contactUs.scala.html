@@ -1,0 +1,94 @@
+<div class="mc-anchor" id="mc-contact-us-anchor"></div>
+<div class="container-fluid mc-contact-us-bg">
+    <div class="container mc-contact-us-wrapper">
+        <div class="row">
+            <div class="col-xs-12 mc-block-title-wrapper">
+                <h3>Contact m8chat</h3>
+            </div>
+        </div>
+        <div class="row" ng-controller="ContactUsController">
+            <form ng-submit="send()" novalidate name="contactUsForm">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="mc-light-font mc-contact-us-company">M8 CHAT PTY LTD</div>
+                            <ul class="fa-ul mc-light-font">
+                                <li><i class="fa-li fa fa-envelope fa-lg"></i><a href="mailto:paul@@m8chat.com">paul@@m8chat.com</a></li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12">
+                            <input
+                                name="name"
+                                type="text"
+                                class="form-control mc-input-text-field mc-light-font"
+                                ng-model="contactUsModel.name"
+                                required
+                                mc-blur
+                                placeholder="Name" />
+                            <div ng-cloak ng-show="contactUsForm.name.$invalid && contactUsForm.name.$blurred">
+                                <small class="mc-validation-error" ng-show="contactUsForm.name.$error.required">
+                                    Please provide your name
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <input
+                                name="email"
+                                type="email"
+                                class="form-control mc-input-text-field mc-light-font"
+                                ng-model="contactUsModel.email"
+                                required
+                                mc-blur
+                                placeholder="Email" />
+                            <div ng-cloak ng-show="contactUsForm.email.$invalid && contactUsForm.email.$blurred">
+                                <small class="mc-validation-error" ng-show="contactUsForm.email.$error.required">
+                                    Please provide your email
+                                </small>
+                                <small class="mc-validation-error" ng-show="contactUsForm.email.$error.email">
+                                    Please provide a valid email
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <input
+                                name="mobile"
+                                type="tel"
+                                class="form-control mc-input-text-field mc-light-font"
+                                ng-model="contactUsModel.mobile"
+                                mc-blur
+                                placeholder="Mobile Number" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <textarea
+                                name="comment"
+                                class="form-control mc-input-textarea-field mc-light-font"
+                                ng-model="contactUsModel.comment"
+                                required
+                                mc-blur
+                                placeholder="Comments">
+                            </textarea>
+                            @*<div class="mc-input-textarea-field-dog-eared"></div>*@
+                            <div ng-cloak ng-show="contactUsForm.comment.$invalid && contactUsForm.comment.$blurred">
+                                <small class="mc-validation-error" ng-show="contactUsForm.comment.$error.required">
+                                    Please provide your comments
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 mc-contact-us-submit-btn-wrapper">
+                    <span ng-cloak ng-show="isSending"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                    <button type="submit" class="btn btn-default" ng-disabled="contactUsForm.$invalid || isSending">Send</button>
+                </div>
+                <div class="col-md-4 col-md-offset-4 col-sm-12 mc-contact-us-alert-bar-wrapper">
+                    <div mc-alert-bar topic="contact-us-alert"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

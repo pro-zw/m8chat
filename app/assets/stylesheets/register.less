@@ -1,0 +1,59 @@
+@import "_bootstrap-vars.less";
+@import "_m8chat-vars.less";
+
+@import "advert/tags/_advert-plan-register.less";
+
+.mc-register-info-bg {
+  background-color: @even-block-bg;
+
+  .mc-register-info-wrapper {
+    padding-top: 26px;
+    padding-bottom: 6px;
+
+    @media (min-width: @screen-sm-min) {
+      padding-top: 44px;
+      padding-bottom: 35px;
+    }
+
+    .mc-basic-info-wrapper {
+      .mc-basic-info-title {
+        font-size: 22px;
+
+        @media (min-width: @screen-sm-min) {
+          font-size: 30px;
+        }
+      }
+      .mc-basic-info-subtitle {
+        .mc-bold-font;
+        font-size: 14px;
+
+        @media (min-width: @screen-sm-min) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .mc-advert-plan-register-wrapper {
+      margin-bottom: 20px;
+    }
+  }
+
+  .mc-register-submit-btn-wrapper {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .mc-register-terms {
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .mc-register-spinner {
+    margin-top: 20px;
+    text-align: center;
+  }
+}

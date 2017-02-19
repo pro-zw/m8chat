@@ -1,0 +1,13 @@
+<div class="photo-uploader">
+    <img ng-src="{{ photoSrc }}">
+    <input type="file" name="photo" accept="image/gif, image/jpeg, image/pjpeg, image/png, image/tiff" onchange="angular.element(this).scope().uploadPhoto(this.files)" style="display:none">
+    <div>
+        <a ng-cloak ng-show="isPhotoEmpty && !isUploading && !isDeleting" class="mc-photo-upload-link" href="#" ng-click="updatePhotoClick($event)">Upload Photo</a>
+        <a ng-cloak ng-hide="isPhotoEmpty || isUploading || isDeleting" class="mc-photo-delete-link" href="#" ng-click="deletePhotoClick($event)">Delete</a>
+        <a ng-cloak ng-hide="isPhotoEmpty || isUploading || isDeleting" class="mc-photo-change-link" href="#" ng-click="updatePhotoClick($event)">Change</a>
+        <div ng-cloak ng-show="isUploading">Uploading</div>
+        <div ng-cloak ng-show="isDeleting">Deleting</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div mc-alert-bar topic="photo-uploader-{{ photoIndex }}"></div>
+</div>

@@ -1,0 +1,57 @@
+@import "../../_bootstrap-vars.less";
+@import "../../_m8chat-vars.less";
+
+#mc-jumbotron-anchor {
+  @media (min-width: @screen-md-min) {
+    top: -@main-nav-height !important;
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+
+  @media (min-width: @screen-sm-min) {
+    height: 542px;
+  }
+
+  .container {
+    .mc-jumbotron-row {
+      font-size: @normal-font-size;
+      
+      .mc-carousel {
+        text-align: center;
+
+        /*
+        @media (min-width: @screen-sm-min) {
+          margin-top: 34px;
+        }
+        */
+      }
+
+      .mc-mobile-phone-wrapper {
+        text-align: center;
+
+        img {
+          max-width: 222px;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .mc-download-btn-wrapper {
+        text-align: center;
+        padding-top: 20px;
+
+        .dropdown-menu {
+          min-width: 180px;
+        }
+
+        .mc-download-term {
+          margin-top: 20px;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

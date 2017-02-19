@@ -1,0 +1,18 @@
+@(rootUrl: String, model: models.advert.AdvertiserRegisterConfirm)
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>m8chat Advertiser Registration Confirmation</title>
+  </head>
+  @defining(rootUrl + controllers.advert.routes.AdvertiserController.confirmEmail(model.advertiserId, model.emailConfirmToken)) { confirmUrl =>
+    <body>
+      <p>Hi @model.name,</p>
+        <p>Thanks for signing up with m8chat. To confirm your registration, please <a href="@confirmUrl" target="_blank">click here</a> or copy and paste the link below into your browser.</p>
+        <p><a href="@confirmUrl" target="_blank">@confirmUrl</a></p>
+        <p>Cheers,<br>The m8chat team</p>
+    </body>
+  }
+</html>

@@ -1,0 +1,52 @@
+@(title: String)(styleSheets: Html)(javaScripts: Html)(content: Html)
+
+<!DOCTYPE html>
+
+<html ng-app="m8chatApp" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="m8chat is an iPhone and Android app that helps you connect with your local community. Sign up to become an advertiser today.">
+
+        <base href="/">
+
+        <link rel="stylesheet" href="@routes.Assets.versioned("bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("bower_components/font-awesome/css/font-awesome.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main.css")">
+        @styleSheets
+
+        <script src="@routes.Assets.versioned("javascripts/modernizr.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/retina.js/dist/retina.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/jQuery/dist/jquery.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular/angular.js")" type="text/javascript"></script>
+
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("favicon.png")">
+        <title>m8chat</title>
+    </head>
+    <body>
+        @content
+        @tags.mainFooter()
+
+        <script src="@routes.Assets.versioned("bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-cookies/angular-cookies.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-sanitize/angular-sanitize.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-animate/angular-animate.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-touch/angular-touch.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-ui-utils/ui-utils.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/app-common.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/filters/default.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/app-event.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/app-path.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/app-util.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/alert-service.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/api-error-interceptor.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/contact-us-service.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/services/advertiser-service.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/directives/mc-blur.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/directives/mc-alertbar.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/controllers/main-nav-controller.js")" type="text/javascript"></script>
+        @javaScripts
+    </body>
+</html>

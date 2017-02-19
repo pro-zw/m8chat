@@ -1,0 +1,88 @@
+@import "../_bootstrap-vars.less";
+@import "../_m8chat-vars.less";
+
+.mc-login-wrapper {
+  position: absolute;
+  display: none;
+  z-index: 3;
+  background-color: #58595b;
+
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  overflow: visible;
+
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  #mc-login-tab {
+    position: absolute;
+    z-index: 2;
+    margin-top: -40px;
+    right: 0;
+    background-color: #58595b;
+    width: 84px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  #mc-login-content {
+    padding: 10px;
+  }
+
+  .mc-input-text-field {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 8px;
+    height: 44px;
+  }
+
+  .mc-input-text-field.highlight {
+    border: 2px solid red;
+  }
+
+  .mc-input-text-field::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+  }
+  .mc-input-text-field:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+    opacity:  1;
+  }
+  .mc-input-text-field::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+    opacity:  1;
+  }
+  .mc-input-text-field:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+  }
+
+  .mc-login-submit-btn-wrapper {
+    margin-top: 12px;
+    margin-bottom: 2px;
+    
+    div.mc-login-forgot-password-wrapper {
+      margin-left: 18px;
+      margin-top: 10px;
+      float: left;
+    }
+
+    div.mc-login-spinner {
+      margin-top: 10px;
+    }
+
+    div.mc-login-alert-bar-wrapper {
+      margin-top: 10px;
+    }
+
+    button {
+      float: left;
+    }
+  }
+}

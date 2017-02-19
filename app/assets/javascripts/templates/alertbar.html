@@ -1,0 +1,4 @@
+<div class="alert {{ alertService.type | default:'alert-danger' }}" role="alert" ng-show="alertService.message && (alertService.topic == topic)">
+    {{ alertService.message | limitTo: 200 }}
+    <a ng-href="{{ alertService.linkUrl | default:'#' }}" class="alert-link" ng-show="alertService.linkText">{{ alertService.linkText }}</a>
+</div>
